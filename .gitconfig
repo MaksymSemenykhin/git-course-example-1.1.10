@@ -1,0 +1,30 @@
+[user]
+	name = Maksym Semenykhin
+	email = msem@isddesign.com
+[core]
+	autocrlf = true
+	editor = vim
+
+[alias]
+	update-origin  = "!sh -c \"git co master  && git fetch && git pull origin  master && git push origin master\""
+	update-release = "!sh -c \"git co release && git fetch && git pull release master && git push origin master && git push release  release:master ;\""
+	update-live    = "!sh -c \"git co live    && git fetch && git pull live    master && git push live  live:master ;\""
+	new-branch ="!sh -c \"git co master; git fetch git pull live master; git co -b $1-msem  \""
+
+st = status
+co = checkout
+br = branch
+ci = commit
+dif = diff --ignore-all-space
+hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph  --date=short
+
+[http]
+	sslVerify = false
+[https]
+	sslVerify = false
+	
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
